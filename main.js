@@ -17,14 +17,18 @@ function SubmitAnswer(){
         console.log("Corrent!");
         ANSWER_AREA.value = null;
         P++;
-        SCORE.innerText = P + "/35";
+        SCORE.innerText = P + "/30";
         Question();
     }else{
         console.error("Wrong!");
         ANSWER_AREA.value = null;
-        P--;
-        SCORE.innerText = P + "/35";
+        document.body.style.backgroundColor = "#DB4848";
+        document.querySelector("#next").style.display = "flex";
     }
+}
+
+function NextQuestion(){
+    Question();
 }
 
 function RNGQuestion(min, max){
@@ -37,12 +41,15 @@ function RNGQuestion(min, max){
         return rng;
     }else{
         if(used.length < max){
-            return RNGQuestion(1, 35);
+            return RNGQuestion(1, 30);
         }else{
-            QUESTION_IMG.style.display = "none";
+            QUESTION_IMG.style.display = "flex";
+            QUESTION_IMG.src = 'Images/Happy.png';
+            QUESTION_IMG.style.width = '500px';
             QUESTION.innerText = "Tavs Rezultāts: " + SCORE.innerText;
             ANSWER_AREA.style.display = "none";
             document.querySelector("#submit").style.display = "none";
+            document.querySelector("#next").style.display = "none";
             document.querySelector("#reload").style.display = "flex";
             SCORE.innerText = null;
             EXAMPLE.innerText = null;
@@ -54,6 +61,8 @@ function RNGQuestion(min, max){
 
 function Question(){
     Q = RNGQuestion(1, 35);
+    document.body.style.backgroundColor = "#2B4A66";
+    document.querySelector("#next").style.display = "none";
 
     if(Q == "1"){
         QUESTION_IMG.style.display = "none";
@@ -63,8 +72,8 @@ function Question(){
     }else if(Q == "2"){
         QUESTION_IMG.style.display = "none";
         QUESTION.innerText = "Kādu mūzikas vēstures stilu pārstāv A. Vivaldi?";
-        EXAMPLE.innerText = "Piemērs: stils";
-        ANSWER = "baroks";
+        EXAMPLE.innerText = "Piemērs: Stils";
+        ANSWER = "Baroks";
     }else if(Q == "3"){
         QUESTION_IMG.style.display = "none";
         QUESTION.innerText = "Cik dalībnieki ir grupā Remix?";
@@ -77,7 +86,7 @@ function Question(){
         ANSWER = "Raimonds Pauls";
     }else if(Q == "5"){
         QUESTION_IMG.style.display = "none";
-        QUESTION.innerText = "Kas aizvietoja Jevgēņiju Ščapovu pēc viņa aiziešanas?";
+        QUESTION.innerText = "Kas aizvietoja Jevgēņiju Ščapovu pēc viņa aiziešanas no grupas Remix?";
         EXAMPLE.innerText = "Piemērs: Raimonds Ozoliņš";
         ANSWER = "Eduards Glotovs";
     }else if(Q == "6"){
@@ -88,14 +97,14 @@ function Question(){
     }else if(Q == "7"){
         QUESTION_IMG.style.display = "none";
         QUESTION.innerText = "Kura ir populārākā grupas Remix dziesma?";
-        EXAMPLE.innerText = "Piemērs: dziesmas nosaukums";
-        ANSWER = "...pie Laika";
+        EXAMPLE.innerText = "Dziesmas nosaukums";
+        ANSWER = "Pie laika";
     }else if(Q == "8"){
         QUESTION_IMG.style.display = "flex";
         QUESTION_IMG.src = 'Images/Remix.png';
         QUESTION_IMG.style.width = '250px';
         QUESTION.innerText = "Kas šī par grupu?";
-        EXAMPLE.innerText = "Piemērs: grupas nosaukums";
+        EXAMPLE.innerText = "grupas nosaukums";
         ANSWER = "Remix";
     }else if(Q == "9"){
         QUESTION_IMG.style.display = "flex";
@@ -112,7 +121,7 @@ function Question(){
     }else if(Q == "11"){
         QUESTION_IMG.style.display = "none";
         QUESTION.innerText = "Kāds ir Antonio Vivaldi slavenākais darbs?";
-        EXAMPLE.innerText = "Piemērs: nosaukums";
+        EXAMPLE.innerText = "nosaukums";
         ANSWER = "Četri gadalaiki";
     }else if(Q == "12"){
         QUESTION_IMG.style.display = "none";
@@ -121,12 +130,12 @@ function Question(){
         ANSWER = "10";
     }else if(Q == "13"){
         QUESTION_IMG.style.display = "none";
-        QUESTION.innerText = "Kādā pilsētā Antonio Vivaldi pavadīja savas dzīves pēdējos mirkļus?";
+        QUESTION.innerText = "Kurā pilsētā Antonio Vivaldi pavadīja savas dzīves pēdējos mirkļus?";
         EXAMPLE.innerText = "Piemērs: Rīgā";
         ANSWER = "Vīnē";
     }else if(Q == "14"){
         QUESTION_IMG.style.display = "none";
-        QUESTION.innerText = "Kurā gadā tapa koncertu kopa Četri gadalaiki?";
+        QUESTION.innerText = "Kurā gadā tapa Vivaldi koncertu kopa Četri gadalaiki?";
         EXAMPLE.innerText = "Piemērs: 1999";
         ANSWER = "1723";
     }else if(Q == "15"){
@@ -142,8 +151,8 @@ function Question(){
     }else if(Q == "17"){
         QUESTION_IMG.style.display = "none";
         QUESTION.innerText = "Kas pēc profesijas bija Antonio Vivaldi tēvs?";
-        EXAMPLE.innerText = "Piemērs: programmētājs";
-        ANSWER = "bārddzinis";
+        EXAMPLE.innerText = "Piemērs: Programmētājs";
+        ANSWER = "Bārddzinis";
     }else if(Q == "18"){
         QUESTION_IMG.style.display = "none";
         QUESTION.innerText = "Kurā gadā tika dibināts Latvijas Radio?";
@@ -164,8 +173,8 @@ function Question(){
     }else if(Q == "21"){
         QUESTION_IMG.style.display = "none";
         QUESTION.innerText = "Ar kādu pārraidi tika atklāts Latvijas Radio?";
-        EXAMPLE.innerText = "Piemērs: mūzika";
-        ANSWER = "Madame Butterfly";
+        EXAMPLE.innerText = "Mūzikas žanrs";
+        ANSWER = "Opera";
     }else if(Q == "22"){
         QUESTION_IMG.style.display = "none";
         QUESTION.innerText = "Cik stundas dienā Latvijas Radio raidīja propogandu PSRS okupācijas laikā?";
@@ -190,9 +199,9 @@ function Question(){
         ANSWER = "jauniešu";
     }else if(Q == "26"){
         QUESTION_IMG.style.display = "none";
-        QUESTION.innerText = "Par ko uzskata miera vēstnešus visā pasaulē?";
+        QUESTION.innerText = "Kurus putnus uzskata par miera vēstnešiem visā pasaulē?";
         EXAMPLE.innerText = "Piemērs: Melnās vārnas";
-        ANSWER = "Baltie baloži";
+        ANSWER = "Baltos baložus";
     }else if(Q == "27"){
         QUESTION_IMG.style.display = "none";
         QUESTION.innerText = "Kas sakrālajā mākslā ir Svētais Gars?";
