@@ -72,7 +72,7 @@ function Question(){
         ANSWER = "7";
     }else if(Q == "4"){
         QUESTION_IMG.style.display = "none";
-        QUESTION.innerText = "Latvijas Radio galvenais redaktors 1985 gadā?";
+        QUESTION.innerText = "Latvijas Radio galvenais mūzikas redaktors 1985. gadā?";
         EXAMPLE.innerText = "Piemērs: Raimonds Ozoliņš";
         ANSWER = "Raimonds Pauls";
     }else if(Q == "5"){
