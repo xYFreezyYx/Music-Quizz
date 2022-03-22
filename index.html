@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mūzikas PD</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Logo.ico">
+    <script type="text/javascript" src="main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Mūzikas Quizz</h1>
+        <label class="score">0/35</label>
+    </header>
+    <main>
+        <div class="questions">
+            <img class="img-question">
+            <h2 class="question">.</h2>
+        </div>
+        <div class="inputs">
+            <label class="example" for="answer">.</label>
+            <input type="text" id="answer" class="answer-area">
+            <input class="button" id="submit" type="button" value="Iesniegt atbildi" onclick="SubmitAnswer()">
+            <input class="button" id="reload" type="button" value="Spēlēt vēlreiz" style="display: none;" onclick="location.reload()">
+        </div>
+    </main>
+</body>
+</html>
